@@ -1,4 +1,4 @@
-This post dives deep on `Array.prototype`'s ECMA5 methods, `forEach`, `map`, `reduce`/`reduceRight`, `filter`, `every`, and `some`. At the end of this (long) lesson, you should be able to:
+This post dives deep on `Array.prototype`'s ECMA5 methods: `forEach`, `map`, `reduce`/`reduceRight`, `filter`, `every`, and `some`. At the end of this (long) lesson, you should be able to:
 
 * Use all of these methods in the correct context  
 * Understand how they are implemented
