@@ -108,7 +108,7 @@ The "immediate"-ness of this relationship is important, as it helps us make sens
 
 Dot or bracket notation, where the rule applies, looks like any of the following example calls:
 
-  // While I omit arguments in the calls for brevity,
+    // While I omit arguments in the calls for brevity,
     //   arguments may be supplied in any of the calls.
     
     // A function to add to our object.
@@ -136,31 +136,31 @@ Dot or bracket notation, where the rule applies, looks like any of the following
     // Bracket notation, more complex & spacing:
     someObject[(Math.random() > 0.5
       ? 'some'
-        : 'another') +
+      : 'another') +
     'Func']();
     
 ###### See how it works
 
 First, let's set an object up to test against, with subobjects, and a couple functions:
 
-  function adopted() {
+    function adopted() {
       console.log(this === parent);
-        console.log(this === child);
+      console.log(this === child);
     }
     var child = {
       innerInline: function() {
-          console.log(this === parent);
-          console.log(this === child);
-        },
-        adopted: adopted
+        console.log(this === parent);
+        console.log(this === child);
+      },
+      adopted: adopted
     };
     var parent = {
       child: child, 
-        outerInline: function() {
-          console.log(this === parent);
-            console.log(this === child);
-        },
-        adopted: adopted
+      outerInline: function() {
+        console.log(this === parent);
+        console.log(this === child);
+      },
+      adopted: adopted
     };
 
 Whew - we now have a nested object, and three functions anchored at four points within the larget `parent` object. All three functions check against our two `Object` literals (`parent`/ `child`), and `child` is a member of `parent`.
@@ -169,7 +169,7 @@ Let's see what is logged by our `console.log` calls when invoked. Remember, all 
 
 First, the most straightforward calls, with the `innerInline` and `outerInline` functions we declared inside the object definition:
   
-  child.innerInline();
+    child.innerInline();
     // this === parent => false
     // this === child => true
     parent.child.innerInline();
@@ -177,25 +177,25 @@ First, the most straightforward calls, with the `innerInline` and `outerInline` 
     // this === child => true
     // innerInline is an immediate member of child only.
     
-  parent.outerInline();
+    parent.outerInline();
     // this === parent => true
     // this === child => false
     // outerInline belongs to parent only.
     
 Great - we can clearly see the immediate member relationships, because we declared them as such, and called them how one would expect. But what happens when we store the `innerInline` and `outerInline` elsewhere, *then* call them?
 
-  var orphanedInner = child.innerInline;
+    var orphanedInner = child.innerInline;
     var orphanedOuter = parent.outerInline;
 
     orphanedInner === child.innerInline; // true, okay...
     orphanedInner();
     // this === parent => false, same as before.
     // this === child => false... huh? No more?
-  // orphanedInner is *not* a member of child anymore!
+    // orphanedInner is *not* a member of child anymore!
     // We called it without dot/bracket notation,
     //     or "out of context"/"without context".
 
-  // Similarly,
+    // Similarly,
     orphanedOuter === parent.outerInline; // true, yep.
     orphanedOuter();
     // this === parent => false, *no context*
