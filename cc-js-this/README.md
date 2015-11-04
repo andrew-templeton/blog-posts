@@ -40,21 +40,21 @@ In JavaScript, code executing outside of any/all functions is within the global 
 
 ###### When does the rule apply?
 
-Why, global versus non-global scope, of course:
+Why, global versus non-global scope, of course. What is global scope?
     
     // Global scope, outside any functions.
     // This rule, Rule 1 applies
-    var foo = 'bar'
-    
+    var foo = 'bar';
+
     (function() {
       // NOT global scope, within a function.
-        // Does NOT apply here (Rule 3 does)
-        var foo = 'bar';
+      // Does NOT apply here (Rule 3 does)
+      var foo = 'bar';
     })();
     
     function namedFunc() {
       // NOT global scope, within a function.
-        // Does NOT apply here (Rule 3 does)
+      // Does NOT apply here (Rule 3 does)
       var foo = 'bar'
     }
 
@@ -66,7 +66,7 @@ First, to make the example environment agnostic,
     // Storing either GLOBAL or window...:
     var STORED_GLOBAL = typeof window !== 'undefined'
       ? window
-        : GLOBAL;
+      : GLOBAL;
     
 Now that we have an environment-agnostic `STORED_GLOBAL` that represents whatever global object is available in the environment:
     
