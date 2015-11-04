@@ -4,28 +4,28 @@ A Ruby on Rails templated stack generator, running in Amazon Web Services, that 
 
 - Application tier
   - Load balanced
-    - Elastically scaled
-    - Multi AZ for high availability 
-    - Ruby version 2.1.5 on each instance
+  - Elastically scaled
+  - Multi AZ for high availability 
+  - Ruby version 2.1.5 on each instance
 - Database
   - Point-and-click scaling
-    - Multi AZ synchronous replication for high availability
-    - Postgres engine
-    - Automated periodic point-in-time backups
+  - Multi AZ synchronous replication for high availability
+  - Postgres engine
+  - Automated periodic point-in-time backups
 - Auxiliary Services
   - Persistent, distributed filestore with AWS S3
-    - High deliverability transactional emails with AWS SES
-    - Redis ley-value cache resources
+  - High deliverability transactional emails with AWS SES
+  - Redis ley-value cache resources
 - Deployment
   - Single-form launch of all services
-    - Passkeys/tokens omitted from codebases
-    - Automated connection of all services
-    - Automated low-tier deploys from Git
-    - Point-click promotions to production
+  - Passkeys/tokens omitted from codebases
+  - Automated connection of all services
+  - Automated low-tier deploys from Git
+  - Point-click promotions to production
 - Monitoring
   - Stats on API latency, CPU, network I/O
-    - Self-healing of application nodes on failed health checks
-    - Email notifications on deploy, health, scaling events
+  - Self-healing of application nodes on failed health checks
+  - Email notifications on deploy, health, scaling events
 
 ### Launching a new environment
 
